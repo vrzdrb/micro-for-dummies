@@ -114,9 +114,9 @@ load_translations() {
             [cur_marker]="  ← current"
             [cur_default_marker]="  ← current default"
             [no_such]="No such item"
-            [ask_mc_system]="  Make this editor the system-wide default? [Y/n] "
+            [ask_mc_system]="Make @EDITOR@ the system-wide default editor? [Y/n] "
             [mc_external_note]="  mc doesn't store the editor path, it uses \$EDITOR."
-            [msg_mc_via]="✔ mc: F4 → external editor via \$EDITOR"
+            [msg_mc_via]="✔ mc: F4 → @EDITOR@ (via \$EDITOR)"
             [msg_mc_external]="✔ mc: external editor (see item 2 for \$EDITOR)"
             [msg_ranger]="✔ ranger: text files →"
             [msg_vifm]="✔ vifm: vicmd →"
@@ -202,9 +202,9 @@ load_translations() {
             [cur_marker]="  ← текущий"
             [cur_default_marker]="  ← текущий по умолчанию"
             [no_such]="Нет такого пункта"
-            [ask_mc_system]="  Назначить \$editor редактором по умолчанию системно? [Y/n] "
+            [ask_mc_system]="Назначить @EDITOR@ редактором по умолчанию системно? [Y/n] "
             [mc_external_note]="  mc не хранит путь к редактору, а берёт его из \$EDITOR."
-            [msg_mc_via]="✔ mc: F4 → \$editor (через \$EDITOR)"
+            [msg_mc_via]="✔ mc: F4 → @EDITOR@ (через \$EDITOR)"
             [msg_mc_external]="✔ mc: внешний редактор (см. пункт 2 для \$EDITOR)"
             [msg_ranger]="✔ ranger: текстовые файлы →"
             [msg_vifm]="✔ vifm: vicmd →"
@@ -871,10 +871,10 @@ menu_filemanagers() {
             setup_mc
             echo -e "  ${GREEN}${T[msg_mc_builtin_off]}${RESET}"
             echo -e "  ${YELLOW}${T[mc_external_note]}${RESET}"
-            read -r -p "${T[ask_mc_system]}" a
+            read -r -p "  ${T[ask_mc_system]//@EDITOR@/$editor}" a
             if [[ ! "${a:-Y}" =~ ^[Nn]$ ]]; then
                 select_default_editor
-                MSG="${T[msg_mc_via]}"
+                MSG="${T[msg_mc_via]//@EDITOR@/$editor}"
             else
                 MSG="${T[msg_mc_external]}"
             fi
