@@ -1,5 +1,7 @@
 # micro-for-dummies
 
+**🇬🇧 [English](README.md)**
+
 ![preview](assets/preview_ru.png)
 
 Интерактивный скрипт для установки и настройки текстового редактора [micro](https://micro-editor.github.io/).

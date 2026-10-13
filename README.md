@@ -1,5 +1,7 @@
 # micro-for-dummies
 
+**🇷🇺 [Русский](README_ru.md)**
+
 ![preview](assets/preview.png)
 
 Interactive script to install and configure the [micro](https://micro-editor.github.io/) text editor.
